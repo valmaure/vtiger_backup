@@ -1,0 +1,9 @@
+* {
+    padding: 10px;
+}
+
+div {
+    color: #888;
+    background: #555;
+    border: 4px solid #444;
+}

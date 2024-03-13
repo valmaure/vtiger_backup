@@ -1,0 +1,40 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>its4you_styles</name>
+			<sql><![CDATA[CREATE TABLE IF NOT EXISTS `its4you_styles` (
+      `styleid` int(11) NOT NULL DEFAULT '0',
+      `stylename` varchar(255) DEFAULT NULL,
+      `stylecontent` longtext,
+      `priority` int(11) DEFAULT NULL,
+      PRIMARY KEY (`styleid`)
+    ) ENGINE=InnoDB]]></sql>
+		</table>
+		<table>
+			<name>its4you_stylescf</name>
+			<sql><![CDATA[CREATE TABLE IF NOT EXISTS `its4you_stylescf` (
+      `styleid` int(11) NOT NULL,
+      PRIMARY KEY (`styleid`)
+    ) ENGINE=InnoDB]]></sql>
+		</table>
+		<table>
+			<name>its4you_stylesrel</name>
+			<sql><![CDATA[CREATE TABLE IF NOT EXISTS `its4you_stylesrel` (
+      `styleid` int(11) NOT NULL,
+      `parentid` int(11) NOT NULL,
+      `module` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+      KEY `styleid` (`styleid`,`parentid`)
+    ) ENGINE=InnoDB]]></sql>
+		</table>
+		<table>
+			<name>vtiger_its4youstyles_user_field</name>
+			<sql><![CDATA[CREATE TABLE IF NOT EXISTS `vtiger_its4youstyles_user_field` (
+      `recordid` int(25) NOT NULL,
+      `userid` int(25) NOT NULL,
+      `starred` varchar(100) DEFAULT NULL,
+      KEY `recordid` (`recordid`)
+    ) ENGINE=InnoDB]]></sql>
+		</table>
+	</tables>
+</schema>
